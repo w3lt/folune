@@ -1,0 +1,36 @@
+#!/bin/sh
+
+APP=/usr/bin/folune-app
+
+case "$1" in
+start)
+  echo "Starting folune-app..."
+
+  if [ ! -x "$APP" ]; then
+    echo "folune-app executable not found: $APP" >&2
+    exit 1
+  fi
+
+  if "$APP"; then
+    exit 0
+  else
+    status=$?
+    echo "folune-app failed with exit status $status" >&2
+    exit "$status"
+  fi
+  ;;
+
+stop)
+  # Milestone 1 is a one-shot program, not a background service.
+  exit 0
+  ;;
+
+restart)
+  "$0" stop && "$0" start
+  ;;
+
+*)
+  echo "Usage: $0 {start|stop|restart}" >&2
+  exit 1
+  ;;
+esac
