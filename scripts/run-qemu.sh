@@ -28,7 +28,9 @@ exec "$QEMU_BIN" \
   -M virt \
   -cpu cortex-a53 \
   -smp 1 \
-  -nographic \
+  -display cocoa \
+  -serial mon:stdio \
+  -device virtio-gpu-pci \
   -kernel "$KERNEL_IMAGE" \
   -append "rootwait root=/dev/vda console=ttyAMA0" \
   -drive "file=$ROOTFS_IMAGE,if=none,format=raw,id=hd0" \

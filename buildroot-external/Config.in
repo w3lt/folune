@@ -1,3 +1,4 @@
 menu "Folune"
     source "$BR2_EXTERNAL_FOLUNE_PATH/package/folune-app/Config.in"
+    source "$BR2_EXTERNAL_FOLUNE_PATH/package/lvgl/Config.in"
 endmenu
