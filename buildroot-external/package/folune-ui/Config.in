@@ -1,0 +1,10 @@
+config BR2_PACKAGE_FOLUNE_UI
+  bool "folune-ui"
+  depends on BR2_INSTALL_LIBSTDCPP
+  depends on BR2_TOOLCHAIN_HAS_THREADS
+  select BR2_PACKAGE_LVGL
+  help
+    Folune's LVGL user interface
+
+comment "folune-ui needs a toolchain w/ C++ and threads"
+  depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS

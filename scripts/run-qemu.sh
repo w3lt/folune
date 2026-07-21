@@ -30,7 +30,7 @@ exec "$QEMU_BIN" \
   -smp 1 \
   -display cocoa \
   -serial mon:stdio \
-  -device virtio-gpu-pci \
+  -device virtio-gpu-pci,edid=on,xres=800,yres=1200 \
   -kernel "$KERNEL_IMAGE" \
   -append "rootwait root=/dev/vda console=ttyAMA0" \
   -drive "file=$ROOTFS_IMAGE,if=none,format=raw,id=hd0" \
